@@ -12,9 +12,13 @@
 		8B8499DC1E486D4000BA22AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499DA1E486D4000BA22AE /* Main.storyboard */; };
 		8B8499DE1E486D4000BA22AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499DD1E486D4000BA22AE /* Assets.xcassets */; };
 		8B8499E11E486D4000BA22AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499DF1E486D4000BA22AE /* LaunchScreen.storyboard */; };
+		8B8499E91E486DAD00BA22AE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499E81E486DAD00BA22AE /* GoogleService-Info.plist */; };
+		8B8499EB1E48843B00BA22AE /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499EA1E48843B00BA22AE /* Map.storyboard */; };
+		BC16535A168A636E56729059 /* Pods_WorkOutThere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F11CF5271A56E62AB3A2D517 /* Pods_WorkOutThere.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		029F7E1A1BC0CE33C916405D /* Pods-WorkOutThere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkOutThere.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkOutThere/Pods-WorkOutThere.release.xcconfig"; sourceTree = "<group>"; };
 		8B8499D31E486D4000BA22AE /* WorkOutThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOutThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8499D61E486D4000BA22AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B8499D81E486D4000BA22AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,10 @@
 		8B8499DD1E486D4000BA22AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B8499E01E486D4000BA22AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B8499E21E486D4000BA22AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B8499E81E486DAD00BA22AE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8B8499EA1E48843B00BA22AE /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Map.storyboard; path = ../Map.storyboard; sourceTree = "<group>"; };
+		BFCBDC87984548AC3EFBB249 /* Pods-WorkOutThere.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkOutThere.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WorkOutThere/Pods-WorkOutThere.debug.xcconfig"; sourceTree = "<group>"; };
+		F11CF5271A56E62AB3A2D517 /* Pods_WorkOutThere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkOutThere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC16535A168A636E56729059 /* Pods_WorkOutThere.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		450DA39D0ADAC16277BB0E33 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBDC87984548AC3EFBB249 /* Pods-WorkOutThere.debug.xcconfig */,
+				029F7E1A1BC0CE33C916405D /* Pods-WorkOutThere.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8B8499CA1E486D4000BA22AE = {
 			isa = PBXGroup;
 			children = (
 				8B8499D51E486D4000BA22AE /* WorkOutThere */,
 				8B8499D41E486D4000BA22AE /* Products */,
+				450DA39D0ADAC16277BB0E33 /* Pods */,
+				E768A9C9F2E2A797CE25A14B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,11 +77,21 @@
 				8B8499D61E486D4000BA22AE /* AppDelegate.swift */,
 				8B8499D81E486D4000BA22AE /* ViewController.swift */,
 				8B8499DA1E486D4000BA22AE /* Main.storyboard */,
+				8B8499EA1E48843B00BA22AE /* Map.storyboard */,
 				8B8499DD1E486D4000BA22AE /* Assets.xcassets */,
 				8B8499DF1E486D4000BA22AE /* LaunchScreen.storyboard */,
 				8B8499E21E486D4000BA22AE /* Info.plist */,
+				8B8499E81E486DAD00BA22AE /* GoogleService-Info.plist */,
 			);
 			path = WorkOutThere;
+			sourceTree = "<group>";
+		};
+		E768A9C9F2E2A797CE25A14B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F11CF5271A56E62AB3A2D517 /* Pods_WorkOutThere.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B8499E51E486D4000BA22AE /* Build configuration list for PBXNativeTarget "WorkOutThere" */;
 			buildPhases = (
+				0AD2F8819E7D2041177D03AF /* [CP] Check Pods Manifest.lock */,
 				8B8499CF1E486D4000BA22AE /* Sources */,
 				8B8499D01E486D4000BA22AE /* Frameworks */,
 				8B8499D11E486D4000BA22AE /* Resources */,
+				3C12AEF8BCBE14003CAEF22A /* [CP] Embed Pods Frameworks */,
+				2C91BDE6098EA09479970B54 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,12 +158,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B8499E11E486D4000BA22AE /* LaunchScreen.storyboard in Resources */,
+				8B8499E91E486DAD00BA22AE /* GoogleService-Info.plist in Resources */,
+				8B8499EB1E48843B00BA22AE /* Map.storyboard in Resources */,
 				8B8499DE1E486D4000BA22AE /* Assets.xcassets in Resources */,
 				8B8499DC1E486D4000BA22AE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AD2F8819E7D2041177D03AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2C91BDE6098EA09479970B54 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorkOutThere/Pods-WorkOutThere-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C12AEF8BCBE14003CAEF22A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WorkOutThere/Pods-WorkOutThere-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B8499CF1E486D4000BA22AE /* Sources */ = {
@@ -259,6 +342,7 @@
 		};
 		8B8499E61E486D4000BA22AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFCBDC87984548AC3EFBB249 /* Pods-WorkOutThere.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FD594T79V7;
@@ -272,6 +356,7 @@
 		};
 		8B8499E71E486D4000BA22AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 029F7E1A1BC0CE33C916405D /* Pods-WorkOutThere.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = FD594T79V7;
@@ -302,6 +387,7 @@
 				8B8499E71E486D4000BA22AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
