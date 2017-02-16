@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FxJ-fy-PLf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="J4P-Rr-M9h">
+            <objects>
+                <viewController id="Z92-hV-I0d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fe1-yG-DdN"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Hc-dq-Tbv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xFG-5g-TFs">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="0yb-RK-A13"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VoD-Oy-3FV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432" y="798"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="B7v-7f-HQX">
+            <objects>
+                <viewController id="S97-aZ-vh7" customClass="LocationViewController" customModule="WorkOutThere" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oa9-hA-B8D"/>
+                        <viewControllerLayoutGuide type="bottom" id="dsU-15-9O1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vaN-pX-jRK">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHH-cv-zg3" userLabel="Map View" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKU-9x-UAg">
+                                        <rect key="frame" x="327" y="506" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="QLu-s5-Ni5"/>
+                                            <constraint firstAttribute="width" secondItem="uKU-9x-UAg" secondAttribute="height" multiplier="1:1" id="tgf-AU-fOc"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="Compass"/>
+                                        <connections>
+                                            <action selector="actionShowLocation:" destination="S97-aZ-vh7" eventType="touchUpInside" id="iow-vN-fz3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uKU-9x-UAg" secondAttribute="bottom" constant="8" id="C2M-7J-Adw"/>
+                                    <constraint firstAttribute="trailing" secondItem="uKU-9x-UAg" secondAttribute="trailing" constant="8" id="nKB-Y4-br3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="zHH-cv-zg3" firstAttribute="top" secondItem="oa9-hA-B8D" secondAttribute="bottom" id="4o0-gM-hSB"/>
+                            <constraint firstItem="zHH-cv-zg3" firstAttribute="width" secondItem="vaN-pX-jRK" secondAttribute="width" id="Egc-2p-Har"/>
+                            <constraint firstItem="dsU-15-9O1" firstAttribute="top" secondItem="zHH-cv-zg3" secondAttribute="bottom" id="rbD-QC-YT2"/>
+                            <constraint firstItem="zHH-cv-zg3" firstAttribute="centerX" secondItem="vaN-pX-jRK" secondAttribute="centerX" id="zTk-CE-NpJ"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="tCh-LM-avE">
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="add" id="oc9-ld-ULa">
+                                <connections>
+                                    <action selector="actionAddNew:" destination="S97-aZ-vh7" id="xLw-jf-zre"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="gt2-t8-G0o">
+                                <connections>
+                                    <action selector="actionAddMarker:" destination="S97-aZ-vh7" id="rEh-cq-P1b"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="eZ6-IL-etp">
+                            <connections>
+                                <action selector="actionSearch:" destination="S97-aZ-vh7" id="4l0-Rw-36n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="zHH-cv-zg3" id="Abc-Fo-8rW"/>
+                        <outlet property="showUserLocation" destination="uKU-9x-UAg" id="o3o-tb-cp1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ykg-pH-KLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432.8" y="-45.42728635682159"/>
+        </scene>
+        <!--Tab Bar View Controller-->
+        <scene sceneID="ArH-ky-nvH">
+            <objects>
+                <tabBarController id="FxJ-fy-PLf" customClass="TabBarViewController" customModule="WorkOutThere" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="DuI-IA-RXA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7ry-9y-yKB" kind="relationship" relationship="viewControllers" id="y4N-gc-YZy"/>
+                        <segue destination="BLC-28-Afa" kind="relationship" relationship="viewControllers" id="RuH-Di-wAF"/>
+                        <segue destination="aUQ-3M-y6f" kind="relationship" relationship="viewControllers" id="6kQ-ub-ibR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wah-Rt-Tzu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738" y="-45"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fje-dZ-nux">
+            <objects>
+                <viewController id="I1S-cd-bHZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lml-pC-Scm"/>
+                        <viewControllerLayoutGuide type="bottom" id="ixO-jS-tVZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7aJ-hb-Lbc">
+                        <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="UFk-vo-HR3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfp-68-edI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1432.8" y="-820.83958020989508"/>
+        </scene>
+        <!--I'm here-->
+        <scene sceneID="8pf-AD-iz2">
+            <objects>
+                <navigationController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="BLC-28-Afa" customClass="NavigationController" customModule="WorkOutThere" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="I'm here" image="Location-dark" selectedImage="Location-light" id="M5R-mG-83k"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="nRG-SS-6jI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S97-aZ-vh7" kind="relationship" relationship="rootViewController" id="OX7-Ws-PIi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0OA-ew-2t3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="-44"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="1aU-9J-L6E">
+            <objects>
+                <navigationController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="7ry-9y-yKB" customClass="NavigationController" customModule="WorkOutThere" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile-dark" selectedImage="Profile-light" id="eTA-U6-DzT"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="xHC-4r-RtR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="I1S-cd-bHZ" kind="relationship" relationship="rootViewController" id="yRa-zw-ntj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iV2-qn-e9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="493.60000000000002" y="-820.83958020989508"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="yHd-e2-cxV">
+            <objects>
+                <navigationController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="aUQ-3M-y6f" customClass="NavigationController" customModule="WorkOutThere" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings-dark" selectedImage="Settings-light" id="an5-vf-p1Q"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Ko4-pn-sZV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z92-hV-I0d" kind="relationship" relationship="rootViewController" id="L3y-wA-cX8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bfN-69-bxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492.75362318840581" y="798.91304347826087"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Compass" width="100" height="100"/>
+        <image name="Location-dark" width="25" height="25"/>
+        <image name="Location-light" width="25" height="25"/>
+        <image name="Profile-dark" width="25" height="25"/>
+        <image name="Profile-light" width="25" height="25"/>
+        <image name="Settings-dark" width="25" height="25"/>
+        <image name="Settings-light" width="25" height="25"/>
+    </resources>
+</document>
