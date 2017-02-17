@@ -15,6 +15,8 @@
 		8B8499EB1E48843B00BA22AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499EA1E48843B00BA22AE /* Main.storyboard */; };
 		8B8C52231E549693007480BC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C52221E549693007480BC /* NavigationController.swift */; };
 		8B8C52251E549808007480BC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C52241E549808007480BC /* Utilities.swift */; };
+		8B8F756A1E5733D60012C2CA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F75691E5733D60012C2CA /* ProfileViewController.swift */; };
+		8B8F756D1E57358A0012C2CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F756C1E57358A0012C2CA /* Constants.swift */; };
 		8BAA8EE31E5363EF0022F1A4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA8EE21E5363EF0022F1A4 /* TabBarViewController.swift */; };
 		8BAA8EE81E5364E50022F1A4 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA8EE71E5364E50022F1A4 /* ServerManager.swift */; };
 		8BAA8EEA1E53664A0022F1A4 /* ServerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */; };
@@ -33,6 +35,8 @@
 		8B8499EA1E48843B00BA22AE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		8B8C52221E549693007480BC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		8B8C52241E549808007480BC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		8B8F75691E5733D60012C2CA /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8B8F756C1E57358A0012C2CA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8BAA8EE21E5363EF0022F1A4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8BAA8EE71E5364E50022F1A4 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerObject.swift; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		8B6CCAA41E55D2650040BA37 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8B8F75691E5733D60012C2CA /* ProfileViewController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -104,11 +109,11 @@
 		8B8499D51E486D4000BA22AE /* WorkOutThere */ = {
 			isa = PBXGroup;
 			children = (
-				8BAA8EE61E5364A80022F1A4 /* Controller */,
-				8BAA8EE51E5364A10022F1A4 /* View */,
-				8BAA8EE41E53649B0022F1A4 /* Model */,
 				8B8499D61E486D4000BA22AE /* AppDelegate.swift */,
-				8B8C52241E549808007480BC /* Utilities.swift */,
+				8BAA8EE41E53649B0022F1A4 /* Models */,
+				8BAA8EE51E5364A10022F1A4 /* Views */,
+				8BAA8EE61E5364A80022F1A4 /* Controllers */,
+				8B8F756B1E5735420012C2CA /* Helpers */,
 				8B8499EA1E48843B00BA22AE /* Main.storyboard */,
 				8B8499DD1E486D4000BA22AE /* Assets.xcassets */,
 				8B8499DF1E486D4000BA22AE /* LaunchScreen.storyboard */,
@@ -118,23 +123,32 @@
 			path = WorkOutThere;
 			sourceTree = "<group>";
 		};
-		8BAA8EE41E53649B0022F1A4 /* Model */ = {
+		8B8F756B1E5735420012C2CA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				8BAA8EE71E5364E50022F1A4 /* ServerManager.swift */,
-				8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */,
+				8B8C52241E549808007480BC /* Utilities.swift */,
+				8B8F756C1E57358A0012C2CA /* Constants.swift */,
 			);
-			name = Model;
+			name = Helpers;
 			sourceTree = "<group>";
 		};
-		8BAA8EE51E5364A10022F1A4 /* View */ = {
+		8BAA8EE41E53649B0022F1A4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		8BAA8EE51E5364A10022F1A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			name = Views;
 			sourceTree = "<group>";
 		};
-		8BAA8EE61E5364A80022F1A4 /* Controller */ = {
+		8BAA8EE61E5364A80022F1A4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				8BAA8EE21E5363EF0022F1A4 /* TabBarViewController.swift */,
@@ -143,7 +157,7 @@
 				8B6CCAA41E55D2650040BA37 /* Profile */,
 				8B6CCAA31E55D2630040BA37 /* Settings */,
 			);
-			name = Controller;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		E768A9C9F2E2A797CE25A14B /* Frameworks */ = {
@@ -285,7 +299,9 @@
 				8B8499D91E486D4000BA22AE /* LocationViewController.swift in Sources */,
 				8BAA8EEA1E53664A0022F1A4 /* ServerObject.swift in Sources */,
 				8BAA8EE31E5363EF0022F1A4 /* TabBarViewController.swift in Sources */,
+				8B8F756A1E5733D60012C2CA /* ProfileViewController.swift in Sources */,
 				8B8499D71E486D4000BA22AE /* AppDelegate.swift in Sources */,
+				8B8F756D1E57358A0012C2CA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
