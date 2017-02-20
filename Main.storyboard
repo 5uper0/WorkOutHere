@@ -176,34 +176,36 @@
                                             <action selector="actionRegister:" destination="I1S-cd-bHZ" eventType="touchUpInside" id="g6f-Z8-beU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2t-zG-FNp">
-                                        <rect key="frame" x="140" y="180" width="67" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHS-Sh-EZM">
+                                        <rect key="frame" x="160" y="180" width="23.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2t-zG-FNp" customClass="FBSDKLoginButton">
+                                        <rect key="frame" x="138" y="209" width="67" height="30"/>
                                         <state key="normal" title="Facebook"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5nM-pl-4nr">
-                                        <rect key="frame" x="146" y="218" width="50" height="30"/>
-                                        <state key="normal" title="Google"/>
-                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ZsP-hX-sct" firstAttribute="centerX" secondItem="66l-4m-OSi" secondAttribute="centerX" id="02S-un-7cn"/>
                                     <constraint firstItem="ayX-al-chB" firstAttribute="centerX" secondItem="IdI-Gi-CbM" secondAttribute="centerX" id="3Ku-6t-b13"/>
                                     <constraint firstItem="Wcm-D9-UJR" firstAttribute="top" secondItem="ayX-al-chB" secondAttribute="bottom" constant="8" id="4cr-Wj-Dy4"/>
-                                    <constraint firstItem="5nM-pl-4nr" firstAttribute="top" secondItem="L2t-zG-FNp" secondAttribute="bottom" constant="8" id="70o-vI-VpD"/>
                                     <constraint firstItem="66l-4m-OSi" firstAttribute="centerX" secondItem="Wcm-D9-UJR" secondAttribute="centerX" id="79a-a6-gVM"/>
+                                    <constraint firstItem="L2t-zG-FNp" firstAttribute="centerX" secondItem="UHS-Sh-EZM" secondAttribute="centerX" id="7pQ-fR-FQq"/>
                                     <constraint firstItem="Wcm-D9-UJR" firstAttribute="centerX" secondItem="ayX-al-chB" secondAttribute="centerX" id="7xB-VH-web"/>
                                     <constraint firstItem="ayX-al-chB" firstAttribute="top" secondItem="IdI-Gi-CbM" secondAttribute="bottom" constant="8" id="Ao1-jS-jIh"/>
                                     <constraint firstItem="ZsP-hX-sct" firstAttribute="top" secondItem="66l-4m-OSi" secondAttribute="bottom" constant="8" id="Frg-Kh-u7T"/>
                                     <constraint firstItem="IdI-Gi-CbM" firstAttribute="top" secondItem="cpJ-Au-gad" secondAttribute="top" constant="8" id="H9A-Jm-8yx"/>
-                                    <constraint firstItem="L2t-zG-FNp" firstAttribute="top" secondItem="ZsP-hX-sct" secondAttribute="bottom" constant="8" id="Opd-7t-9zl"/>
+                                    <constraint firstItem="L2t-zG-FNp" firstAttribute="top" secondItem="UHS-Sh-EZM" secondAttribute="bottom" constant="8" id="UwC-dF-Mc4"/>
                                     <constraint firstItem="IdI-Gi-CbM" firstAttribute="centerX" secondItem="cpJ-Au-gad" secondAttribute="centerX" id="ZXD-0X-YQl"/>
                                     <constraint firstItem="66l-4m-OSi" firstAttribute="top" secondItem="Wcm-D9-UJR" secondAttribute="bottom" constant="8" id="a3u-3a-ePj"/>
+                                    <constraint firstItem="UHS-Sh-EZM" firstAttribute="top" secondItem="ZsP-hX-sct" secondAttribute="bottom" constant="8" id="d4e-VC-8vN"/>
                                     <constraint firstItem="66l-4m-OSi" firstAttribute="width" secondItem="ayX-al-chB" secondAttribute="width" id="ihx-XU-Chl"/>
-                                    <constraint firstItem="5nM-pl-4nr" firstAttribute="centerX" secondItem="L2t-zG-FNp" secondAttribute="centerX" id="kzU-je-0sP"/>
                                     <constraint firstItem="L2t-zG-FNp" firstAttribute="centerX" secondItem="ZsP-hX-sct" secondAttribute="centerX" id="owh-rQ-SjX"/>
                                     <constraint firstItem="ayX-al-chB" firstAttribute="leading" secondItem="cpJ-Au-gad" secondAttribute="leading" constant="8" id="vyS-Lq-IzJ"/>
                                     <constraint firstAttribute="trailing" secondItem="ayX-al-chB" secondAttribute="trailing" constant="8" id="wwG-q4-NL0"/>
+                                    <constraint firstItem="UHS-Sh-EZM" firstAttribute="centerX" secondItem="ZsP-hX-sct" secondAttribute="centerX" id="xdL-0y-YuX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -218,9 +220,8 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="UFk-vo-HR3"/>
                     <connections>
-                        <outlet property="actionLoginFacebook" destination="L2t-zG-FNp" id="BCE-dn-fEV"/>
-                        <outlet property="actionLoginGoogle" destination="5nM-pl-4nr" id="GuX-Ry-clI"/>
                         <outlet property="emailTextField" destination="ayX-al-chB" id="JKZ-K7-053"/>
+                        <outlet property="loginFacebookButton" destination="L2t-zG-FNp" id="2u6-r7-eNv"/>
                         <outlet property="passwordTextField" destination="66l-4m-OSi" id="lR7-xH-Yhf"/>
                     </connections>
                 </viewController>
@@ -235,7 +236,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="I'm here" image="Location-dark" selectedImage="Location-light" id="M5R-mG-83k"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="nRG-SS-6jI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="nRG-SS-6jI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -256,7 +257,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Profile" image="Profile-dark" selectedImage="Profile-light" id="eTA-U6-DzT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="xHC-4r-RtR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xHC-4r-RtR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -276,7 +277,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings-dark" selectedImage="Settings-light" id="an5-vf-p1Q"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Ko4-pn-sZV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Ko4-pn-sZV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

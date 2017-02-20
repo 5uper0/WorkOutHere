@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
+import FBSDKLoginKit
 
 class ProfileViewController: UIViewController {
 
@@ -17,15 +17,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var loginFacebookButton: FBSDKLoginButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        loginFacebookButton.readPermissions = ["public_profile", "email"]
+
     }
     
     @IBAction func actionRegister(_ sender: UIButton) {
@@ -35,10 +40,6 @@ class ProfileViewController: UIViewController {
         })
     
     }
-    
-    @IBOutlet weak var actionLoginFacebook: UIButton!
-
-    @IBOutlet weak var actionLoginGoogle: UIButton!
     /*
     // MARK: - Navigation
 
