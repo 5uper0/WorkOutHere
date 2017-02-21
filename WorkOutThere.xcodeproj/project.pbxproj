@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B7052221E5C5E6D0085ACFC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7052211E5C5E6D0085ACFC /* User.swift */; };
+		8B7052241E5C5E7F0085ACFC /* Ad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7052231E5C5E7F0085ACFC /* Ad.swift */; };
 		8B8499D71E486D4000BA22AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8499D61E486D4000BA22AE /* AppDelegate.swift */; };
 		8B8499D91E486D4000BA22AE /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8499D81E486D4000BA22AE /* LocationViewController.swift */; };
 		8B8499DE1E486D4000BA22AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B8499DD1E486D4000BA22AE /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 
 /* Begin PBXFileReference section */
 		029F7E1A1BC0CE33C916405D /* Pods-WorkOutThere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkOutThere.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkOutThere/Pods-WorkOutThere.release.xcconfig"; sourceTree = "<group>"; };
+		8B7052211E5C5E6D0085ACFC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8B7052231E5C5E7F0085ACFC /* Ad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ad.swift; sourceTree = "<group>"; };
 		8B8499D31E486D4000BA22AE /* WorkOutThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOutThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B8499D61E486D4000BA22AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B8499D81E486D4000BA22AE /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */,
+				8B7052211E5C5E6D0085ACFC /* User.swift */,
+				8B7052231E5C5E7F0085ACFC /* Ad.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BAA8EE81E5364E50022F1A4 /* ServerManager.swift in Sources */,
+				8B7052241E5C5E7F0085ACFC /* Ad.swift in Sources */,
 				8B8C52231E549693007480BC /* NavigationController.swift in Sources */,
 				8B8C52251E549808007480BC /* Utilities.swift in Sources */,
 				8B8499D91E486D4000BA22AE /* LocationViewController.swift in Sources */,
@@ -301,6 +308,7 @@
 				8BAA8EE31E5363EF0022F1A4 /* TabBarViewController.swift in Sources */,
 				8B8F756A1E5733D60012C2CA /* ProfileViewController.swift in Sources */,
 				8B8499D71E486D4000BA22AE /* AppDelegate.swift in Sources */,
+				8B7052221E5C5E6D0085ACFC /* User.swift in Sources */,
 				8B8F756D1E57358A0012C2CA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
