@@ -17,6 +17,7 @@ class User: ServerObject {
     }
     
     var name = ""
+    var email = ""
     var gender: Gender = .unknown
     var dateOfBirth = ""
     var country = ""

@@ -2,44 +2,126 @@
 //  ProfileViewController.swift
 //  WorkOutThere
 //
-//  Created by Oleh Veheria on 2/17/17.
+//  Created by Oleh Veheria on 2/22/17.
 //  Copyright © 2017 Oleh Veheria. All rights reserved.
 //
 
 import UIKit
-import Firebase
 import FBSDKLoginKit
+import FirebaseAuth
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let nameAndFieldTableCellIdentifier = "NameAndFieldTableCell"
+    let nameAndSegControlTableCellIdentifier = "NameAndSegControlTableCell"
+    let buttonTableCellIdentifier = "ButtonTableCell"
+    
+    open var userAdsCount: Int = 0
 
-    let defaults = UserDefaults.standard
-    
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    
-    @IBOutlet weak var loginFacebookButton: FBSDKLoginButton!
+    enum RowName: Int {
+        case name
+        case email
+        case gender
+        case age
+        case country
+        case city
+        case phone
+        case website
+        case count // leave it last for count number of properties of this enum
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
-        loginFacebookButton.readPermissions = ["public_profile", "email"]
+    }
+    
+    // MARK: - Private Methods
+    
+    // MARK: - UITableViewDataSource
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
-    @IBAction func actionRegister(_ sender: UIButton) {
-        FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return RowName.count.rawValue + userAdsCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-            print("user = \(user), \nerror = \(error)")
-        })
-    
+        switch indexPath.row {
+            
+        case RowName.name.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "Name", placeholder: "Bill Clinton", andText: "")
+            return cell
+
+        case RowName.email.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "E-mail", placeholder: "name@mail.com", andText: "")
+            return cell
+            
+        case RowName.gender.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndSegControlTableCellIdentifier) as! NameAndSegControlTableCell
+            cell.configureCell(with: "Gender", firstTitle: "Male", andSecondTitle: "Female")
+            return cell
+            
+        case RowName.age.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "Age", placeholder: "33", andText: "")
+            return cell
+            
+        case RowName.country.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "Country", placeholder: "Choose one", andText: "")
+            return cell
+            
+        case RowName.city.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "City", placeholder: "Nice place to live", andText: "")
+            return cell
+            
+        case RowName.phone.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "Phone", placeholder: "+1 234-56-78", andText: "")
+            return cell
+            
+        case RowName.website.rawValue:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "Website", placeholder: "yoursite.com", andText: "")
+            return cell
+            
+        default:
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
+            cell.configureCell(with: "Name", placeholder: "Bill Clinton", andText: "")
+            return cell
+        }
+        
+        
     }
+    
+    // MARK: - UITableViewDelegate
+
+    
     /*
     // MARK: - Navigation
 

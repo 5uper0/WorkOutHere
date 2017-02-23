@@ -139,10 +139,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func alertShow() {
-        
-        let alert = UIAlertController(title: "Alert", message: "Unable to connect your location", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        Utilities.shared.showAlert(withTitle: "Alert", andMessage: "Unable to connect your location", in: self)
     }
     
     func addMarkerAt(coordinate: CLLocationCoordinate2D) {

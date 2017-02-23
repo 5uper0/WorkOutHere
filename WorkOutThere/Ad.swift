@@ -25,7 +25,6 @@ class Ad: ServerObject {
     }
     
     var type: TypeOf = .unknown
-    
     var city = ""
     var country = ""
     var price = ""

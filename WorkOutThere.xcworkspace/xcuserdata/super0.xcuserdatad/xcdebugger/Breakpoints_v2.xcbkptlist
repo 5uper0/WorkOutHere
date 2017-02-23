@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WorkOutThere/ProfileViewController.swift"
-            timestampString = "509296917.927637"
+            filePath = "WorkOutThere/LoginViewController.swift"
+            timestampString = "509535756.612598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "actionRegister(_:)"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "loginButton(_:didCompleteWith:error:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
