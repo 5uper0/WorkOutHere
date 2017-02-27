@@ -7,21 +7,20 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 import FBSDKLoginKit
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var loginFacebookButton: FBSDKLoginButton!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if FIRAuth.auth()?.currentUser != nil {
+        initializeLoginButton()
+        
+        if FIRAuth.auth()?.currentUser != nil && FBSDKAccessToken.current() != nil {
             self.performSegue(withIdentifier: "ProfileViewController", sender: self)
-
-        } else {
-            initializeLoginButton()
 
         }
     }
@@ -31,6 +30,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
         
     }
+    
+    // MARK: - Actions
+    
+    
     
     // MARK: - Private Methods
     
@@ -43,28 +46,33 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             "email"]
 
     }
-        
+    
+    func showAlert(withMessage string: String) {
+        Utilities.shared.showAlert(withTitle: "Alert", andMessage: string, in: self)
+
+    }
+    
     // MARK: - FBSDKLoginButtonDelegate
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
-        if let error = error {
-            print(error.localizedDescription)
-            return
-        
-        } else if result.token != nil {
+        if (error != nil) {
+            showAlert(withMessage: error.localizedDescription)
             
+        } else if (result.isCancelled) {
+            showAlert(withMessage: "Login cancelled")
+            
+        } else {
             let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             
             FIRAuth.auth()?.signIn(with: credential) { (user, error) in
                 
                 if let error = error {
-                    print(error.localizedDescription)
-                    return
+                    self.showAlert(withMessage: error.localizedDescription)
+                    
                 } else {
-                                        
                     self.performSegue(withIdentifier: "ProfileViewController", sender: self)
-
+                    
                 }
             }
         }

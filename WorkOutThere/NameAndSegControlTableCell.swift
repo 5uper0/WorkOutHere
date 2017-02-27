@@ -34,4 +34,10 @@ class NameAndSegControlTableCell: UITableViewCell {
         segControl.setTitle(secondTitle, forSegmentAt: 1)
     }
     
+    func setSegment(with genderEnum: User.Gender) {
+        
+        if genderEnum != .unknown {
+            segControl.selectedSegmentIndex = genderEnum.rawValue
+        }
+    }
 }

@@ -9,5 +9,6 @@
 import UIKit
 
 class Constants: NSObject {
+    open let dataURL = "https://workout-c17fa.firebaseio.com"
 
 }

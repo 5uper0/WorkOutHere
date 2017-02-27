@@ -5,7 +5,6 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Fabric (1.6.11)
   - FBSDKCoreKit (4.19.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.19.0):
@@ -19,9 +18,6 @@ PODS:
   - Firebase/Database (3.13.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.2)
-  - Firebase/Storage (3.13.0):
-    - Firebase/Core
-    - FirebaseStorage (= 1.0.6)
   - FirebaseAnalytics (3.7.0):
     - FirebaseCore (~> 3.5)
     - FirebaseInstanceID (~> 1.0)
@@ -35,34 +31,6 @@ PODS:
   - FirebaseDatabase (3.1.2):
     - FirebaseAnalytics (~> 3.7)
   - FirebaseInstanceID (1.0.9)
-  - FirebaseStorage (1.0.6):
-    - FirebaseAnalytics (~> 3.7)
-    - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseUI (3.0.0):
-    - FirebaseUI/All (= 3.0.0)
-  - FirebaseUI/All (3.0.0):
-    - FirebaseUI/Auth
-    - FirebaseUI/Database
-    - FirebaseUI/Facebook
-    - FirebaseUI/Google
-    - FirebaseUI/Storage
-    - FirebaseUI/Twitter
-  - FirebaseUI/Auth (3.0.0):
-    - Firebase/Auth
-  - FirebaseUI/Database (3.0.0):
-    - Firebase/Database
-  - FirebaseUI/Facebook (3.0.0):
-    - FBSDKLoginKit (~> 4.0)
-    - FirebaseUI/Auth
-  - FirebaseUI/Google (3.0.0):
-    - FirebaseUI/Auth
-    - GoogleSignIn (~> 4.0)
-  - FirebaseUI/Storage (3.0.0):
-    - Firebase/Storage
-    - SDWebImage (~> 4.0)
-  - FirebaseUI/Twitter (3.0.0):
-    - FirebaseUI/Auth
-    - TwitterKit (~> 2.4)
   - GoogleMaps (2.2.0):
     - GoogleMaps/Maps (= 2.2.0)
   - GoogleMaps/Base (2.2.0)
@@ -90,24 +58,16 @@ PODS:
   - GTMSessionFetcher/Core (1.1.8)
   - GTMSessionFetcher/Full (1.1.8):
     - GTMSessionFetcher/Core (= 1.1.8)
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
-  - TwitterCore (2.8.0):
-    - Fabric
-  - TwitterKit (2.8.0):
-    - TwitterCore (= 2.8.0)
 
 DEPENDENCIES:
+  - FBSDKLoginKit
   - Firebase/Auth
-  - Firebase/Core
-  - FirebaseUI
+  - Firebase/Database
   - GoogleMaps
   - GoogleSignIn
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   FBSDKCoreKit: 894b2b6eda6a4c8c4204e92e59cc355709ef045c
   FBSDKLoginKit: 83ca4d8f12a2022570af9fd6aacf27f6b425b99f
   Firebase: 5bc34d7b5ff5792e3386c8b28dc6265deeab0da4
@@ -116,17 +76,12 @@ SPEC CHECKSUMS:
   FirebaseCore: 1c0a13bf59bb95cdd19577252499f0ec6a03e999
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
-  FirebaseStorage: 63628572a5fde258f8e933b5fb42697468da0158
-  FirebaseUI: a647cdc7bd4dea6505f3c0e3a995a19aa416347a
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
-  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
-  TwitterKit: f7b0a1adcb800f6446ff0ef70164797376522ff3
 
-PODFILE CHECKSUM: 87adddc9949ab13749804f6a123a3c07fa2732e2
+PODFILE CHECKSUM: 795852579a77ae318fb7ff9ce021b608e354652e
 
 COCOAPODS: 1.2.0

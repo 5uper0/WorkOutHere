@@ -16,13 +16,17 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     let nameAndSegControlTableCellIdentifier = "NameAndSegControlTableCell"
     let buttonTableCellIdentifier = "ButtonTableCell"
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    var user = User()
+    
     open var userAdsCount: Int = 0
 
     enum RowName: Int {
         case name
         case email
         case gender
-        case age
+        case birthday
         case country
         case city
         case phone
@@ -32,20 +36,47 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        getUserInfo()
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated: false)
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Actions
+    
+    @IBAction func actionLogout(_ sender: UIBarButtonItem) {
+        logout()
+    }
+    
     // MARK: - Private Methods
+    
+    func getUserInfo() {
+        ServerManager.shared.getUserInfo { (user) in
+                        
+            self.user = user
+            
+            self.tableView.reloadData()
+        }
+    }
+    
+    func logout() {
+        
+        do {
+            try FIRAuth.auth()?.signOut()
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+            
+        }
+        
+        FBSDKLoginManager().logOut()
+        
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
     
     // MARK: - UITableViewDataSource
 
@@ -58,31 +89,33 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+                
         switch indexPath.row {
             
         case RowName.name.rawValue:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
-            cell.configureCell(with: "Name", placeholder: "Bill Clinton", andText: "")
+            cell.configureCell(with: "Name", placeholder: "Bill Clinton", andText: user.name)
             return cell
 
         case RowName.email.rawValue:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
-            cell.configureCell(with: "E-mail", placeholder: "name@mail.com", andText: "")
+            cell.configureCell(with: "E-mail", placeholder: "name@mail.com", andText: user.email)
             return cell
             
         case RowName.gender.rawValue:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndSegControlTableCellIdentifier) as! NameAndSegControlTableCell
             cell.configureCell(with: "Gender", firstTitle: "Male", andSecondTitle: "Female")
+            cell.setSegment(with: user.genderEnum)
+            
             return cell
             
-        case RowName.age.rawValue:
+        case RowName.birthday.rawValue:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
-            cell.configureCell(with: "Age", placeholder: "33", andText: "")
+            cell.configureCell(with: "Birthday", placeholder: "33", andText: user.birthday)
             return cell
             
         case RowName.country.rawValue:

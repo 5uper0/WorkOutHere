@@ -6,9 +6,9 @@ target 'WorkOutThere' do
   use_frameworks!
 
   # Pods for WorkOutThere
-	pod 'Firebase/Core'
+    pod 'Firebase/Database'
     pod 'Firebase/Auth'
-    pod 'FirebaseUI'
+    pod 'FBSDKLoginKit'
 	pod 'GoogleMaps'
     pod 'GoogleSignIn'
 

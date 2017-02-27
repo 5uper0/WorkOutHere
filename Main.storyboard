@@ -288,6 +288,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mna-1x-gFg" id="mZT-mS-1e6"/>
+                                    <outlet property="delegate" destination="mna-1x-gFg" id="RRl-Zo-oCr"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -299,7 +303,17 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" id="uP3-bF-BIc"/>
+                    <navigationItem key="navigationItem" id="uP3-bF-BIc">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="0xH-Fa-O2g">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="actionLogout:" destination="mna-1x-gFg" id="CgP-A0-eou"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="OIt-Gz-WEC" id="ei3-4U-b9A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFv-Qc-Jhu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,7 +326,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="I'm here" image="Location-dark" selectedImage="Location-light" id="M5R-mG-83k"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="nRG-SS-6jI">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="nRG-SS-6jI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -333,7 +347,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Profile" image="Profile-dark" selectedImage="Profile-light" id="eTA-U6-DzT"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="xHC-4r-RtR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="xHC-4r-RtR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -353,7 +367,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings-dark" selectedImage="Settings-light" id="an5-vf-p1Q"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Ko4-pn-sZV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Ko4-pn-sZV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
