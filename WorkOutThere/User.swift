@@ -19,10 +19,9 @@ class User: ServerObject {
     var userID = ""
     var name = ""
     var email = ""
-    var gender = ""
-    var genderEnum: Gender = .unknown
+    var gender: (string: String, enum: Gender) = ("", Gender.unknown)
     var birthday = ""
-    var location = ""
+    var location = Location()
     var city = ""
     var website = ""
     var phone = ""
@@ -32,26 +31,34 @@ class User: ServerObject {
         super.init()
     }
     
-    init(withResult dictionary: NSDictionary) {
+    override init(withResult dictionary: NSDictionary) {
         super.init()
         
         self.userID = dictionary["id"] as! String
         self.name = dictionary["first_name"] as! String
         self.email = dictionary["email"] as! String
-        self.gender = dictionary["gender"] as! String
+        self.gender.string = dictionary["gender"] as! String
         
-        if self.gender == "male" {
-            self.genderEnum = .male
+        if self.gender.string == "male" {
+            self.gender.enum = .male
             
-        } else if self.gender == "female" {
-            self.genderEnum = .female
+        } else if self.gender.string == "female" {
+            self.gender.enum = .female
         }
         
+        let location = dictionary["location"] as! NSDictionary
+        let locationName = location["name"] as! String
+        let index1 = locationName.range(of: " ", options: .backwards)?.lowerBound
+        var country = locationName.substring(from: index1!)
+        self.location.country = country.substring(from: country.characters.index(country.startIndex, offsetBy: 1))
+        
+        let index2 = locationName.range(of: ",", options: .backwards)?.lowerBound
+        self.location.city = locationName.substring(to: index2!)
+
+        
         self.birthday = dictionary["birthday"] as! String
-        
-        print("\nUSER: \(self.userID)")
-        
-        ServerManager.shared.postUserInfoToFirebaseStorage(user: self)
+                
+        ServerManager.shared.postUserInfo(withUser: self)
     }
 
 }

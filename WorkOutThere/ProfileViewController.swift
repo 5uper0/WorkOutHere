@@ -108,7 +108,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndSegControlTableCellIdentifier) as! NameAndSegControlTableCell
             cell.configureCell(with: "Gender", firstTitle: "Male", andSecondTitle: "Female")
-            cell.setSegment(with: user.genderEnum)
+            cell.setSegment(with: user.gender.enum)
             
             return cell
             
@@ -121,13 +121,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         case RowName.country.rawValue:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
-            cell.configureCell(with: "Country", placeholder: "Choose one", andText: "")
+            cell.configureCell(with: "Country", placeholder: "Choose one", andText: user.location.country)
             return cell
             
         case RowName.city.rawValue:
             
             let cell = tableView.dequeueReusableCell(withIdentifier: nameAndFieldTableCellIdentifier) as! NameAndFieldTableCell
-            cell.configureCell(with: "City", placeholder: "Nice place to live", andText: "")
+            cell.configureCell(with: "City", placeholder: "Nice place to live", andText: user.location.city)
             return cell
             
         case RowName.phone.rawValue:

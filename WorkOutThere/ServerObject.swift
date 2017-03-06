@@ -9,10 +9,12 @@
 import UIKit
 
 class ServerObject: NSObject {
-    
-    class location: ServerObject {
         
-        var latitude = ""
-        var longitude = ""
+    override init() {
+        super.init()
     }
+    
+    init(withResult dictionary: NSDictionary) {
+    }
+    
 }

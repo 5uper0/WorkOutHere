@@ -9,6 +9,14 @@
 import UIKit
 
 class Constants: NSObject {
-    open let dataURL = "https://workout-c17fa.firebaseio.com"
+    
+    static let shared = Constants()
+    
+    let dataURL = "https://workout-c17fa.firebaseio.com"
+    
+    // MARK: - Map colors
+    
+    let mapMarkerColor = UIColor.black
+    let mapCircleFillColor = Utilities.shared.colorWith(R: 4.0, G: 149.0, B: 255.0, alpha: 0.1)
 
 }

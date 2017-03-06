@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class Ad: ServerObject {
 
@@ -18,18 +19,27 @@ class Ad: ServerObject {
         case customer
     }
     
-    enum currency {
-        case uah
+    enum Currency {
         case usd
         case eur
+        case uah
     }
     
     var type: TypeOf = .unknown
-    var city = ""
-    var country = ""
-    var price = ""
+    var price: (value: Float, currency: Ad.Currency) = (0.0, .usd)
+    var location = Location()
     var photos: [String] = []
     var links: [String] = []
-    var user: User?
+    var user = User()
+    
+    override init() {
+        super.init()
+    }
+    
+    init(withLocation location: CLLocationCoordinate2D) {
+        super.init()
+        
+        
+    }
     
 }

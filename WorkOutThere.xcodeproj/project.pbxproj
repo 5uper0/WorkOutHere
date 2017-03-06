@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B17F91F1E682AFD008D2BCB /* DropDownMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B17F91E1E682AFD008D2BCB /* DropDownMenu.xib */; };
 		8B6DC3DC1E5EE96200737001 /* NameAndFieldTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DC3DB1E5EE96200737001 /* NameAndFieldTableCell.swift */; };
 		8B6DC3DE1E5EEB1400737001 /* NameAndSegControlTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DC3DD1E5EEB1400737001 /* NameAndSegControlTableCell.swift */; };
 		8B6DC3E21E5EF1E000737001 /* ButtonTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6DC3E11E5EF1E000737001 /* ButtonTableCell.swift */; };
@@ -23,6 +24,7 @@
 		8B8C52251E549808007480BC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8C52241E549808007480BC /* Utilities.swift */; };
 		8B8F756A1E5733D60012C2CA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F75691E5733D60012C2CA /* LoginViewController.swift */; };
 		8B8F756D1E57358A0012C2CA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F756C1E57358A0012C2CA /* Constants.swift */; };
+		8B921F5F1E65817E009601CB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B921F5E1E65817E009601CB /* Location.swift */; };
 		8BAA8EE31E5363EF0022F1A4 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA8EE21E5363EF0022F1A4 /* TabBarViewController.swift */; };
 		8BAA8EE81E5364E50022F1A4 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA8EE71E5364E50022F1A4 /* ServerManager.swift */; };
 		8BAA8EEA1E53664A0022F1A4 /* ServerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */; };
@@ -31,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		029F7E1A1BC0CE33C916405D /* Pods-WorkOutThere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkOutThere.release.xcconfig"; path = "Pods/Target Support Files/Pods-WorkOutThere/Pods-WorkOutThere.release.xcconfig"; sourceTree = "<group>"; };
+		8B17F91E1E682AFD008D2BCB /* DropDownMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownMenu.xib; sourceTree = "<group>"; };
 		8B6DC3DB1E5EE96200737001 /* NameAndFieldTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameAndFieldTableCell.swift; sourceTree = "<group>"; };
 		8B6DC3DD1E5EEB1400737001 /* NameAndSegControlTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameAndSegControlTableCell.swift; sourceTree = "<group>"; };
 		8B6DC3E11E5EF1E000737001 /* ButtonTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTableCell.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		8B8C52241E549808007480BC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		8B8F75691E5733D60012C2CA /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8B8F756C1E57358A0012C2CA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8B921F5E1E65817E009601CB /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		8BAA8EE21E5363EF0022F1A4 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8BAA8EE71E5364E50022F1A4 /* ServerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerObject.swift; sourceTree = "<group>"; };
@@ -75,6 +79,14 @@
 				029F7E1A1BC0CE33C916405D /* Pods-WorkOutThere.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B17F91D1E682944008D2BCB /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				8B17F91E1E682AFD008D2BCB /* DropDownMenu.xib */,
+			);
+			name = Location;
 			sourceTree = "<group>";
 		};
 		8B6CCAA31E55D2630040BA37 /* Settings */ = {
@@ -161,6 +173,7 @@
 			children = (
 				8BAA8EE91E53664A0022F1A4 /* ServerObject.swift */,
 				8B7052211E5C5E6D0085ACFC /* User.swift */,
+				8B921F5E1E65817E009601CB /* Location.swift */,
 				8B7052231E5C5E7F0085ACFC /* Ad.swift */,
 			);
 			name = Models;
@@ -169,6 +182,7 @@
 		8BAA8EE51E5364A10022F1A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8B17F91D1E682944008D2BCB /* Location */,
 				8B6DC3DA1E5EE90E00737001 /* Profile */,
 			);
 			name = Views;
@@ -259,6 +273,7 @@
 			files = (
 				8B8499E11E486D4000BA22AE /* LaunchScreen.storyboard in Resources */,
 				8B8499E91E486DAD00BA22AE /* GoogleService-Info.plist in Resources */,
+				8B17F91F1E682AFD008D2BCB /* DropDownMenu.xib in Resources */,
 				8B8499EB1E48843B00BA22AE /* Main.storyboard in Resources */,
 				8B8499DE1E486D4000BA22AE /* Assets.xcassets in Resources */,
 			);
@@ -321,6 +336,7 @@
 			files = (
 				8BAA8EE81E5364E50022F1A4 /* ServerManager.swift in Sources */,
 				8B7052241E5C5E7F0085ACFC /* Ad.swift in Sources */,
+				8B921F5F1E65817E009601CB /* Location.swift in Sources */,
 				8B6DC3E21E5EF1E000737001 /* ButtonTableCell.swift in Sources */,
 				8B8C52231E549693007480BC /* NavigationController.swift in Sources */,
 				8B8C52251E549808007480BC /* Utilities.swift in Sources */,

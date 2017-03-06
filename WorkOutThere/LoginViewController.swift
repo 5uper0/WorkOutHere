@@ -47,34 +47,23 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     }
     
-    func showAlert(withMessage string: String) {
-        Utilities.shared.showAlert(withTitle: "Alert", andMessage: string, in: self)
-
-    }
-    
     // MARK: - FBSDKLoginButtonDelegate
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         
         if (error != nil) {
-            showAlert(withMessage: error.localizedDescription)
+            Utilities.shared.showAlert(withTitle: "Alert", andMessage: error.localizedDescription, in: self)
             
         } else if (result.isCancelled) {
-            showAlert(withMessage: "Login cancelled")
+            Utilities.shared.showAlert(withTitle: "Alert", andMessage: "Login cancelled", in: self)
             
         } else {
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            
-            FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-                
-                if let error = error {
-                    self.showAlert(withMessage: error.localizedDescription)
-                    
-                } else {
-                    self.performSegue(withIdentifier: "ProfileViewController", sender: self)
-                    
-                }
-            }
+
+            ServerManager.shared.signInUserWithFacebookCredential(self, completionHandler: { (isComplete) in
+                self.performSegue(withIdentifier: "ProfileViewController", sender: self)
+
+            })
+        
         }
     }
     

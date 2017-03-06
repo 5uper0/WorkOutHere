@@ -8,23 +8,23 @@
 
 import UIKit
 import GoogleMaps
+import YNDropDownMenu
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate {
-    
-    let locationManager = CLLocationManager()
-    let mapMarker = GMSMarker()
-    var mapCircle = GMSCircle()
-
-    var zoom: Float = 12.0
-    
-    @IBOutlet weak var mapView: GMSMapView!
-    
-    @IBOutlet weak var showUserLocation: UIButton!
-    
+ 
     enum ActionSheetType {
         case addNew
         case search
     }
+    
+    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var dropDownMenuView: YNDropDownMenu!
+    
+    let locationManager = CLLocationManager()
+    let mapMarker = GMSMarker()
+    
+    var mapCircle = GMSCircle()
+    var zoom: Float = 12.0
     
     // MARK: - System functions
     
@@ -36,8 +36,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        self.mapView.bringSubview(toFront: showUserLocation)
     }
     
     // MARK: - Initializers
@@ -67,19 +65,74 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                                               longitude: coordinate.longitude,
                                               zoom: zoom)
         
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
+        mapView.accessibilityElementsHidden = false
         mapView.camera = camera
         mapView.isMyLocationEnabled = true
+        
+        initDropDownMenuView()
 
+    }
+    
+    func initDropDownMenuView() {
+        
+        let dropDownViews = Bundle.main.loadNibNamed("DropDownMenu", owner: nil, options: nil) as? [UIView]
+        
+        
+        let view = YNDropDownMenu(frame:dropDownMenuView.bounds, dropDownViews: dropDownViews!, dropDownViewTitles: ["Action settings"])
+        mapView.addSubview(view)
+
+        // Inherit YNDropDownView if you want to hideMenu in your dropDownViews
+        view.setImageWhen(normal: UIImage(named: "arrow_enabled"), selected: UIImage(named: "arrow_enabled"), disabled: UIImage(named: "arrow_disabled"))
+        view.setLabelColorWhen(normal: UIColor.darkGray, selected: UIColor.darkGray, disabled: UIColor.white)
+        view.setLabelFontWhen(normal: UIFont.systemFont(ofSize: 11), selected: UIFont.boldSystemFont(ofSize: 12), disabled: UIFont.systemFont(ofSize: 10))
+        
+        view.backgroundBlurEnabled = true
+                
+        view.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 0.2)
+        
+        // Add custom blurEffectView
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.black
+        view.blurEffectView = backgroundView
+        view.blurEffectViewAlpha = 0.7
+        
+        // Open and Hide Menu
+        view.alwaysSelected(at: 0)
+        //            view.disabledMenuAt(index: 2)
+        //view.showAndHideMenuAt(index: 3)
+        self.view.bringSubview(toFront: view)
+        dropDownMenuView = view
     }
     
     // MARK: - Actions
     
     @IBAction func actionAddNew(_ sender: UIBarButtonItem) {
-        actionSheetShowWith(actionType: .addNew)
+//        actionSheetShowWith(actionType: .addNew)
+        
     }
     
     @IBAction func actionSearch(_ sender: UIBarButtonItem) {
-        actionSheetShowWith(actionType: .search)
+//        actionSheetShowWith(actionType: .search)
+        ServerManager.shared.getAdLocationWith { (locations) in
+            
+            self.mapView.clear()
+            
+            var bounds = GMSCoordinateBounds()
+            
+            for location in locations {
+                
+                let coordinate = location.getCLLocationCoordinate2D()
+                
+                self.initMarker(withMarker: GMSMarker(), coordinate: coordinate, title: location.title, snippet: location.snippet, needsCircle: false)
+                bounds = bounds.includingCoordinate(coordinate)
+            }
+            
+            let update = GMSCameraUpdate.fit(bounds, withPadding: 15.0)
+            self.mapView.animate(with: update)
+            
+        }
     }
     
     @IBAction func actionAddMarker(_ sender: UIBarButtonItem) {
@@ -87,16 +140,10 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         //mapView.clear()
         
         let coordinate = mapView.camera.target
-        addMarkerAt(coordinate: coordinate)
-    }
-    
-    @IBAction func actionShowLocation(_ sender: UIButton) {
+        initMarker(withMarker: mapMarker, coordinate: coordinate, title: "Hello!", snippet: "Here you are", needsCircle: true)
         
-        let coordinate = locationManager.location!.coordinate
-        let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: zoom)
-        mapView.animate(to: camera)
+        ServerManager.shared.postLocationMarker(withAd: coordinate)
     }
-    
     
     // MARK: - Private methods
     
@@ -142,18 +189,20 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         Utilities.shared.showAlert(withTitle: "Alert", andMessage: "Unable to connect your location", in: self)
     }
     
-    func addMarkerAt(coordinate: CLLocationCoordinate2D) {
+    func initMarker(withMarker marker: GMSMarker, coordinate: CLLocationCoordinate2D, title: String, snippet: String, needsCircle: Bool) {
         
         let radius: CLLocationDistance = 5000
-
-        mapMarker.position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
-        mapMarker.title = "Here You Are"
-        mapMarker.snippet = "Hello!"
-        mapMarker.icon = UIImage(named: "MapMarker")
-        mapMarker.map = mapView
-
-        addCircleAt(coordinate: coordinate, radius: radius)
-
+        
+        marker.position = CLLocationCoordinate2DMake(coordinate.latitude, coordinate.longitude)
+        marker.title = title
+        marker.snippet = snippet
+        marker.appearAnimation = .pop
+        marker.icon = GMSMarker.markerImage(with: Constants.shared.mapMarkerColor)
+        marker.map = mapView
+        
+        if needsCircle {
+            addCircleAt(coordinate: coordinate, radius: radius)
+        }
     }
     
     func addCircleAt(coordinate: CLLocationCoordinate2D,
@@ -161,7 +210,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         
         mapCircle.fillColor = Utilities.shared.colorTransparent()
         mapCircle = GMSCircle(position: coordinate, radius: radius)
-        mapCircle.fillColor = Utilities.shared.colorWith(R: 4.0, G: 149.0, B: 255.0, alpha: 0.1)
+        mapCircle.fillColor = Constants.shared.mapCircleFillColor
         mapCircle.strokeColor = Utilities.shared.colorTransparent()
         mapCircle.strokeWidth = 1
         

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,22 +46,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHH-cv-zg3" userLabel="Map View" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKU-9x-UAg">
-                                        <rect key="frame" x="327" y="506" width="40" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WEX-7f-Lhr" customClass="YNDropDownMenu">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="38"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="QLu-s5-Ni5"/>
-                                            <constraint firstAttribute="width" secondItem="uKU-9x-UAg" secondAttribute="height" multiplier="1:1" id="tgf-AU-fOc"/>
+                                            <constraint firstAttribute="height" constant="38" id="jcy-fn-jvD"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="Compass"/>
-                                        <connections>
-                                            <action selector="actionShowLocation:" destination="S97-aZ-vh7" eventType="touchUpInside" id="iow-vN-fz3"/>
-                                        </connections>
-                                    </button>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="uKU-9x-UAg" secondAttribute="bottom" constant="8" id="C2M-7J-Adw"/>
-                                    <constraint firstAttribute="trailing" secondItem="uKU-9x-UAg" secondAttribute="trailing" constant="8" id="nKB-Y4-br3"/>
+                                    <constraint firstAttribute="trailing" secondItem="WEX-7f-Lhr" secondAttribute="trailing" id="j85-8g-lNs"/>
+                                    <constraint firstItem="WEX-7f-Lhr" firstAttribute="leading" secondItem="zHH-cv-zg3" secondAttribute="leading" id="t77-Uk-d6a"/>
+                                    <constraint firstItem="WEX-7f-Lhr" firstAttribute="top" secondItem="zHH-cv-zg3" secondAttribute="top" id="vr7-zE-uNr"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -94,8 +89,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="dropDownMenuView" destination="WEX-7f-Lhr" id="J0S-lh-trh"/>
                         <outlet property="mapView" destination="zHH-cv-zg3" id="Abc-Fo-8rW"/>
-                        <outlet property="showUserLocation" destination="uKU-9x-UAg" id="o3o-tb-cp1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ykg-pH-KLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,7 +190,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZH2-vK-YRd" id="Shr-g9-3iE">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yrc-vj-iuA">
@@ -204,7 +199,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Johnson" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-7S-gkR">
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Bill Johnson" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-7S-gkR">
                                                     <rect key="frame" x="102" y="7" width="265" height="30"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -228,7 +223,7 @@
                                         <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Sb-Lt-bat" id="qb4-pF-AUx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9a-wd-L8l">
@@ -265,7 +260,7 @@
                                         <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e9E-Q0-f0Y" id="R4g-Oo-byi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Dw-DP-Z1P">
@@ -382,7 +377,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Compass" width="100" height="100"/>
         <image name="Location-dark" width="25" height="25"/>
         <image name="Location-light" width="25" height="25"/>
         <image name="Profile-dark" width="25" height="25"/>
